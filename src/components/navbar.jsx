@@ -1,17 +1,13 @@
-import React, { PureComponent } from "react";
+import React, { memo } from 'react';
 
-class Navbar extends PureComponent {
-  render() {
-    const habits = this.props.habits.filter((item) => item.count > 0);
-    const counts = habits.length;
+const Navbar = memo(({ totalCount }) => {
     return (
-      <nav className="navbar">
-        <i className="fas fa-leaf navbar-logo"></i>
-        <h1 className="navbar-title">Habit Tracker</h1>
-        <span className="habit-count navbar-count">{counts}</span>
-      </nav>
+        <nav className="navbar">
+            <i className="fas fa-leaf navbar-logo"></i>
+            <span className="navbar-title">Habit Tracker</span>
+            <span className="navbar-count">{totalCount}</span>
+        </nav>
     );
-  }
-}
+});
 
 export default Navbar;
